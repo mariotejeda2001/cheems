@@ -1,6 +1,10 @@
 package mx.itson.cheems
 
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.os.VibratorManager
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -41,6 +45,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
     fun flip (card : Int){
         if (card ==gameOverCard){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S){
+                //si la version del sistema operativo es igual o mayor a S entonces el vibrador se va a utilizar de esta manera
+                val vibratorAdmin = applicationContext.getSystemService(VIBRATOR_MANAGER_SERVICE) as VibratorManager
+                val vibrator = vibratorAdmin.defaultVibrator
+                vibrator.vibrate(VibrationEffect.createOneShot(1500, VibrationEffect.DEFAULT_AMPLITUDE))
+            } else{
+                val vibrator = applicationContext.getSystemService(VIBRATOR_SERVICE) as Vibrator
+                vibrator.vibrate(1500)
+            }
             Toast.makeText(this, "Perdiste!! jaja intenta otra vez", Toast.LENGTH_LONG).show()
 
             for(i in 1..9){
