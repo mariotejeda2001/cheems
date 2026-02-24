@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">cheems</string>
     <string name="btn_update">update</string>
+    <string name="txt_welcome">welcome</string>
+    <string name="txt_loser">you lost</string>
+    <string name="txt_win">omg, you win!</string>
 </resources>
