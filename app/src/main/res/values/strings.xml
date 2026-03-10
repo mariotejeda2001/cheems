@@ -4,4 +4,7 @@
     <string name="txt_welcome">welcome</string>
     <string name="txt_loser">you lost</string>
     <string name="txt_win">omg, you win!</string>
+    <string name="form_name">Name:</string>
+    <string name="form_nickname">Nickname:</string>
+    <string name="btn_save">Save</string>
 </resources>

@@ -1,5 +1,6 @@
 package mx.itson.cheems
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
@@ -32,8 +33,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             insets
         }
         // prueba de metodo getAll
-        Winner().save(this,"pedro robles", "xX_Winner666_xX")
-        Winner().getAll(this)
+        //Winner().save(this,"pedro robles", "xX_Winner666_xX")
+        //Winner().getAll(this)
+        val btnNewWinner = findViewById<View>(R.id.btn_new_winner) as Button
+        btnNewWinner.setOnClickListener(this)
 
         Toast.makeText(this, getString(R.string.txt_welcome), Toast.LENGTH_SHORT).show()
         start()
@@ -130,6 +133,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.card12 -> {flip(12)}
 
             R.id.btnupdate -> start()
+            R.id.btn_new_winner -> {
+                val intentWinnerForm = Intent(this, WinnerFromActivity::class.java)
+                startActivity(intentWinnerForm)
+            }
         }
     }
 }

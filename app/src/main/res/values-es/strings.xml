@@ -5,4 +5,7 @@
     <string name="txt_welcome">bienvenido</string>
     <string name="txt_loser">perdiste</string>
     <string name="txt_win">o por dios ganaste!!!</string>
+    <string name="form_name">Nombre:</string>
+    <string name="form_nickname">Apodo:</string>
+    <string name="btn_save">Guardar</string>
 </resources>

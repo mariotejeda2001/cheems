@@ -107,6 +107,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_update"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Felicidades Ganaste!!!"/>
+    <Button
+        android:id="@+id/btn_new_winner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrate"/>
 
 
 
