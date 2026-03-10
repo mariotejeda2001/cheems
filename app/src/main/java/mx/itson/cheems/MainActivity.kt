@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             vibrator.vibrate(1500)
         }
     }
-    fun flip (card : Int){
+    fun flip (card: Int){
 
         if (card ==gameOverCard){
             vibration()
@@ -85,6 +85,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     btnCard.setBackgroundResource(R.drawable.img)
                 }else{
                     btnCard.setBackgroundResource(R.drawable.cheems_ok)
+                    cartasContador ++
                 }
             }
         } else if (card == gameWin){
@@ -106,7 +107,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             )
             btnCard.setBackgroundResource(R.drawable.cheems_ok)
             btnCard.isEnabled = false
-            if (cartasContador == 11){
+            cartasContador ++
+            if (cartasContador == 10){
                 Toast.makeText(this, getString(R.string.txt_win), Toast.LENGTH_SHORT).show()
             }
         }
