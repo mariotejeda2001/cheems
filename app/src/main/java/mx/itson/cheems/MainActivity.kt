@@ -14,6 +14,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import mx.itson.itson.persistence.Winner
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -30,6 +31,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        // prueba de metodo getAll
+        Winner().save(this,"pedro robles", "xX_Winner666_xX")
+        Winner().getAll(this)
+
         Toast.makeText(this, getString(R.string.txt_welcome), Toast.LENGTH_SHORT).show()
         start()
         val btnUpdate = findViewById<View>(R.id.btnupdate) as Button
