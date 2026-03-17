@@ -108,15 +108,16 @@
         android:layout_height="wrap_content"
         android:text="@string/btn_update"/>
     <TextView
+        android:id="@+id/txt_winner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20dp"
-        android:text="Felicidades Ganaste!!!"/>
+        android:text="@string/txt_new_winner"/>
     <Button
         android:id="@+id/btn_new_winner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrate"/>
+        android:text="@string/txt_singUp"/>
 
 
 

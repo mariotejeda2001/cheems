@@ -27,6 +27,7 @@ class Winner {
             values.put("name", name)
             values.put("nickname", nickname)
 
+
             dataBase.insert("Winners", null, values)
 
             //hits -> pistas

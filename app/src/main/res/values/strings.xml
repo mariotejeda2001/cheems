@@ -7,4 +7,6 @@
     <string name="form_name">Name:</string>
     <string name="form_nickname">Nickname:</string>
     <string name="btn_save">Save</string>
+    <string name="txt_new_winner">Congratulations you win!!!</string>
+    <string name="txt_singUp">Sign up</string>
 </resources>

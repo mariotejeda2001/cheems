@@ -10,18 +10,19 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import mx.itson.itson.persistence.Winner
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     var gameOverCard = 0
     var gameWin = 0
     var cartasContador = 0
+    var juegoActivo = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +33,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        findViewById<Button>(R.id.btn_new_winner).visibility = View.GONE
+        findViewById<TextView>(R.id.txt_winner).visibility = View.GONE
+        //findViewById<>(String.).visibility = View.GONE
         // prueba de metodo getAll
         //Winner().save(this,"pedro robles", "xX_Winner666_xX")
         //Winner().getAll(this)
@@ -44,6 +48,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btnUpdate.setOnClickListener(this)
     }
     fun start (){
+        findViewById<Button>(R.id.btn_new_winner).visibility = View.GONE
+        findViewById<TextView>(R.id.txt_winner).visibility = View.GONE
         for (i in 1..12){
             val btnCard = findViewById<View>(resources.getIdentifier("card$i", "id", this.packageName)) as ImageButton
             btnCard.setOnClickListener(this)
@@ -56,6 +62,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             gameOverCard = (1..12).random()
         }
         cartasContador = 0
+        juegoActivo = true
 
 
         Log.d("valor de la carta", "la carta perdedora es ${gameOverCard.toString()}")
@@ -73,11 +80,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
     fun flip (card: Int){
+        if (!juegoActivo) return
 
         if (card ==gameOverCard){
             vibration()
             Toast.makeText(this, getString(R.string.txt_loser), Toast.LENGTH_LONG).show()
-
+            juegoActivo = false
             for(i in 1..12){
                 val btnCard = findViewById<View>(
                     resources.getIdentifier("card$i", "id", this.packageName)
@@ -85,7 +93,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 if (i == card){
                     btnCard.setBackgroundResource(R.drawable.cheems_bad)
                 } else if (i==gameWin){
-                    btnCard.setBackgroundResource(R.drawable.img)
+                    btnCard.setBackgroundResource(R.drawable.cheems_super)
                 }else{
                     btnCard.setBackgroundResource(R.drawable.cheems_ok)
                     cartasContador ++
@@ -94,10 +102,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         } else if (card == gameWin){
             vibration()
             Toast.makeText(this, getString(R.string.txt_win), Toast.LENGTH_SHORT).show()
+            juegoActivo = false
+            findViewById<Button>(R.id.btn_new_winner).visibility = View.VISIBLE
+            findViewById<TextView>(R.id.txt_winner).visibility = View.VISIBLE
             for(i in 1..12){
                 val btnCard = findViewById<View>(resources.getIdentifier("card$i", "id", this.packageName)) as ImageButton
                 if (i == card){
-                    btnCard.setBackgroundResource(R.drawable.img)
+                    btnCard.setBackgroundResource(R.drawable.cheems_super)
                 } else if (i == gameOverCard){
                     btnCard.setBackgroundResource(R.drawable.cheems_bad)
                 }else{
@@ -113,6 +124,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             cartasContador ++
             if (cartasContador == 10){
                 Toast.makeText(this, getString(R.string.txt_win), Toast.LENGTH_SHORT).show()
+                findViewById<Button>(R.id.btn_new_winner).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.txt_winner).visibility = View.VISIBLE
             }
         }
     }

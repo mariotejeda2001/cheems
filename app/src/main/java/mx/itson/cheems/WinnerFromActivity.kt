@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import mx.itson.itson.persistence.Winner
-
 class WinnerFromActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,12 +24,13 @@ class WinnerFromActivity : AppCompatActivity(), View.OnClickListener {
         btnSave.setOnClickListener(this)
     }
 
-    override fun onClick(view: View) {
-    when(view.id){
+    override fun onClick(v: View) {
+    when(v.id){
         R.id.btn_save ->{
             val name = findViewById<EditText>(R.id.txt_name).text.toString()
             val nickname = findViewById<EditText>(R.id.txt_nickname).text.toString()
             Winner().save(this, name, nickname)
+            v.isEnabled = false
         }
     }
     }
