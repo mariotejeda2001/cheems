@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val btnViewWinners = findViewById<Button>(R.id.btn_view_winners)
+        btnViewWinners.setOnClickListener(this)
         findViewById<Button>(R.id.btn_new_winner).visibility = View.GONE
         findViewById<TextView>(R.id.txt_winner).visibility = View.GONE
         //findViewById<>(String.).visibility = View.GONE
@@ -150,6 +152,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val intentWinnerForm = Intent(this, WinnerFromActivity::class.java)
                 startActivity(intentWinnerForm)
             }
+           R.id.btn_view_winners ->{
+               val intentList = Intent(this, WinnerListActivity::class.java)
+               startActivity(intentList)
+           }
         }
     }
 }

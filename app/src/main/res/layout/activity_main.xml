@@ -118,6 +118,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/txt_singUp"/>
+    <Button
+        android:id="@+id/btn_view_winners"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Ganadores"/>
 
 
 

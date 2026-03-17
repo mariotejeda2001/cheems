@@ -1,5 +1,6 @@
 package mx.itson.cheems
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Display
 import android.view.View
@@ -31,7 +32,13 @@ class WinnerFromActivity : AppCompatActivity(), View.OnClickListener {
             val nickname = findViewById<EditText>(R.id.txt_nickname).text.toString()
             Winner().save(this, name, nickname)
             v.isEnabled = false
+
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish()
         }
+
     }
     }
 }
