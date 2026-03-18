@@ -16,6 +16,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import mx.itson.itson.persistence.Winner
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -153,7 +154,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intentWinnerForm)
             }
            R.id.btn_view_winners ->{
-               val intentList = Intent(this, WinnerListActivity::class.java)
+               val intentList = Intent(this, WinnerListActivity2::class.java)
                startActivity(intentList)
            }
         }

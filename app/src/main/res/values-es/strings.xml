@@ -3,7 +3,7 @@
     <string name="app_name">cheems</string>
     <string name="btn_update">actualizar</string>
     <string name="txt_welcome">bienvenido</string>
-    <string name="txt_loser">perdiste</string>
+    <string name="txt_loser">maldita perdedora</string>
     <string name="txt_win">o por dios ganaste!!!</string>
     <string name="form_name">Nombre:</string>
     <string name="form_nickname">Apodo:</string>
